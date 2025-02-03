@@ -209,7 +209,7 @@ func _ready():
 	var use_test_scene = false
 	
 	if ResourceLoader.exists("res://scena2.glb"):
-		scene = load("res://sciana_podloga.glb")
+		scene = load("res://scena2.glb")
 		instance = scene.instantiate()
 		add_child(instance)
 		print("Scena GLB załadowana pomyślnie")
@@ -220,7 +220,8 @@ func _ready():
 	
 	# Konfiguracja kamery
 	var camera = Camera3D.new()
-	camera.position = Vector3(10, 10, -20)
+	#camera.position = Vector3(10, 10, -20) to do sciany 
+	camera.position = Vector3(15, -8, 35)
 	camera.look_at(Vector3.ZERO)
 	add_child(camera)
 	
@@ -238,10 +239,10 @@ func _ready():
 	
 	# Renderowanie z niską rozdzielczością do testów
 	print("Rozpoczynam renderowanie testowe...")
-	var image = raytrace(2000, 2000, camera.position, Vector3.ZERO)
+	var image = raytrace(50, 50, camera.position, Vector3.ZERO)
 	
 	# Zapis i weryfikacja wyniku
-	if image.save_png("res://raytraced_resultpodlogaprzesunieta.png") == OK:
+	if image.save_png("res://raytraced_resultScenaxwprawo35-8.png") == OK:
 		print("Renderowanie zakończone! Obraz zapisany jako 'raytraced_result.png'")
 		
 		# Wyświetl przykładowe piksele
